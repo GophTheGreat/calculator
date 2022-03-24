@@ -1,1 +1,113 @@
+* {
+ display: flex;
+ box-sizing: border-box;
+}
 
+body{
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  border: 4px solid red;
+}
+
+.top{
+ justify-content: center;
+}
+
+.middle{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator{
+  background-color: #888888;
+  width: 900px;
+}
+
+#topLip{
+  padding: 2px;
+  height: 30px;
+  width: 900px;
+  background-color: #777777;
+  flex-direction: column;
+  border-bottom: 4px solid black;
+}
+
+.display{
+  height: 111px;
+  width: 870px;
+  background-color: #888888;
+  flex-direction: column;
+  align-items: center;
+}
+
+#outer{
+  border-bottom: 6px solid teal;
+  width: 880px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+}
+
+#textured{
+  background-color: #999999;
+  width: 850px;
+}
+
+#slate{
+  background-color: #BBBBBB;
+  width: 800px;
+}
+
+#backing{
+  background-color: #DDDDDD;
+  width: 750px;
+}
+
+#workZone{
+  background-color: #1DF9BD;
+  width: 650px;
+}
+
+#subContainer{
+ flex-direction: row;
+ background-color: lightblue;
+ justify-content: space-between;
+}
+
+#subContainer *{
+ flex-direction: row;
+ background-color: blue;
+ width: 70px;
+ height: 30px;
+}
+
+#subContainer #left{
+  width: 200px;
+  justify-content: flex-begin;
+  border: 3px solid yellow;
+}
+
+#subContainer #right{
+  width: 300px;
+  justify-content: flex-end;
+  border: 3px solid yellow;
+}
+
+#mainBody{
+  height: 700px;
+  width: 900px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer{
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 70px;
+  letter-spacing: 4px;
+  width: 2000px;
+}
