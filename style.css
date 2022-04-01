@@ -88,9 +88,13 @@ body{
 
 #workZone{
   background-color: #51695b;
+  padding-right: 10px;
   width: 90%;
   height: 92%;
   border-radius: 4px;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 90px;
 }
 
 #subContainer{
@@ -307,11 +311,11 @@ width: 700px;
 }
 
 #buttonsRightCon{
-  padding: 40px 20px;
+  padding: 40px 0px;
+  padding-right: 20px;
   width: 25%;
-  flex-wrap: wrap;
   justify-content: space-between;
-  /* border: 2px solid yellow; */
+  align-items: space-between;
 }
 
 #buttonsRightConSub{
@@ -346,6 +350,15 @@ width: 700px;
 #m2{
   font-size: 22px;
   font-weight: bold;
+}
+
+button:hover {
+    box-shadow: inset -16px -2px 188px 200px rgba(0,0,0,0.30);
+}
+
+button:active{
+    border-style: inset;
+    border: 6px solid yellow;
 }
 
 .footer{
