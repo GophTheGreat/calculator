@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
+  <link href="http://fonts.cdnfonts.com/css/scientific-calculator-lcd" rel="stylesheet">
 </head>
 <body>
   <div class="top">
@@ -55,10 +56,10 @@
     </div>
     <div id="buttonContainer">
       <div id="buttonsLeftCon">
-        <button class="buttonsLeft1 opButton">OFF</button>
-        <button class="buttonsLeft2 opButton">SQRT</button>
+        <button class="buttonsLeft1 inactive">OFF</button>
+        <button class="buttonsLeft2 sqrtButton">SQRT</button>
         <button class="buttonsLeft2 opButton">%</button>
-        <button class="buttonsLeft1">ON/C</button>
+        <button class="buttonsLeft1 clearButton" >ON/C</button>
       </div>
       <div id="buttonsMidCon">
         <button class="buttonsMid numButton">7</button>
@@ -71,7 +72,7 @@
         <button class="buttonsMid numButton">2</button>
         <button class="buttonsMid numButton">3</button>
         <button class="buttonsMid numButton">0</button>
-        <button class="buttonsMid">.</button>
+        <button class="buttonsMid" id="decimalButton">.</button>
         <button class="buttonsMid eqButton">=</button>
       </div>
       <div id="buttonsRightCon">
@@ -82,9 +83,9 @@
         </div>
         <div id="buttonsRightConSub">
           <button class="buttonsRight opButton">÷</button>
-          <button class="buttonsRight" id="m">MRC</button>
-          <button class="buttonsRight" id="m2">M-</button>
-          <button class="buttonsRight" id="m2">M+</button>
+          <button class="buttonsRight inactive" id="m">MRC</button>
+          <button class="buttonsRight inactive" id="m2">M-</button>
+          <button class="buttonsRight inactive" id="m2">M+</button>
         </div>
       </div>
     </div>
