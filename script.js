@@ -2,6 +2,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let working = "";
+let answer = "";
 
 let inEqualsLoop = false;
 
@@ -60,8 +61,15 @@ workZone.textContent = working;
 //Numerical buttons
 for(let i = 0; i < numButtons.length; i++){
   numButtons[i].addEventListener("click", (e) => {
-    if(num2 != "")
-    {
+    if(answer){
+      answer = "";
+      workZone.textContent += e.target.textContent;
+      working = workZone.textContent;
+      num1 = working;
+      console.log(`Clicked numeral "${e.target.textContent}" with prev answer. State is <${num1} ${operator} ${num2}> working = ${working}`);
+      return;
+    }
+    if(num2 != ""){
       working = workZone.textContent;
       num2 = "";
       num1 = "";
@@ -74,8 +82,7 @@ for(let i = 0; i < numButtons.length; i++){
       workZone.textContent += e.target.textContent;
       working += e.target.textContent;
     }
-    console.log(working);
-    console.log(`Current ops <${num1} ${operator} ${num2}> working = ${working}`);
+    console.log(`Clicked numeral "${e.target.textContent}"  <${num1} ${operator} ${num2}> working = ${working}`);
     });
 }
 
@@ -91,7 +98,7 @@ for(let i = 0; i < opButtons.length; i++){
           updateDecimalInactive(decimalButton);
         };
         num1 = workZone.textContent;
-        console.log("Iamhere");
+        console.log(`Operator set as ${e.target.textContent}`);
         working = "";
       }
       working = "";
@@ -110,13 +117,16 @@ for(let i = 0; i < opButtons.length; i++){
       operator = e.target.textContent;
     };
     updateDecimalInactive(decimalButton);
-    console.log(`Current ops <${num1} ${operator} ${num2}> working = ${working}`);
+    console.log("Clearing answer")
+    answer = "";
+    console.log(`Clicked operator <${num1} ${operator} ${num2}> working = ${working}`);
   });
 }
 
 eqButton.addEventListener("click", () => {
+      console.log(`Clicked "equals" <${num1} ${operator} ${num2}> working = ${working}`);
   if(num1 && operator){
-    let answer = solve();
+    answer = solve();
     workZone.textContent = answer;
     working = num2;
     inEqualsLoop = true;
@@ -130,20 +140,26 @@ eqButton.addEventListener("click", () => {
 
 function solve(){
   num2 = working;
-  console.log(`Solving ${num1} ${operator} ${num2}`);
-  let answer = operate(operator, num1, num2);
-  num1 = answer;
-  workZone.textContent = answer;
-  working = "";
-  updateDecimalInactive(decimalButton);
-  console.log(`Ending with ${num1} ${operator} ${num2}`);
-  return answer;
+  console.log(`Solve evaluating ${num1} ${operator} ${num2}`);
+  if(num1 && num2){
+    console.log(`Solving...`);
+    answer = operate(operator, num1, num2);
+    num1 = answer;
+    workZone.textContent = answer;
+    working = "";
+    updateDecimalInactive(decimalButton);
+    console.log(`Ending with ${num1} ${operator} ${num2} \n`);
+    return answer;
+  }
+  console.log(`Skipping solve`);
+  return;
 }
 
 clearButton.addEventListener("click", () => {
   num1 = "0";
   num2 = "";
   operator = "";
+  answer = "";
   working = "0";
   inEqualsLoop = false;
   workZone.textContent = working;
@@ -180,7 +196,7 @@ function updateDecimalInactive(button){
 
 sqrtButton.addEventListener("click", () => {
   num1 = workZone.textContent;
-  let answer = Math.sqrt(num1);
+  answer = Math.sqrt(num1);
   working = "";
   workZone.textContent = answer;
   num1 = answer;
