@@ -65,8 +65,12 @@ for(let i = 0; i < numButtons.length; i++){
       answer = "";
       workZone.textContent += e.target.textContent;
       working = workZone.textContent;
-      num1 = working;
+      num1 = "";
+      num2 = "";
+      operator = "";
       console.log(`Clicked numeral "${e.target.textContent}" with prev answer. State is <${num1} ${operator} ${num2}> working = ${working}`);
+      console.log("Exiting equals");
+      inEqualsLoop = false;
       return;
     }
     if(num2 != ""){
